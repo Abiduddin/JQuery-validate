@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>JQuery-Validation</title>
+    <link rel="stylesheet" href="Contents\CSS\validationError.css">
+    <link rel="stylesheet" href="Contents\CSS\bootstrap\bootstrap.css">
+    <link rel="stylesheet" href="Contents\CSS\bootstrap-datepicker\bootstrap-datepicker.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="inputForm">
+            <table>
+                <tr>
+                    <td><label for="nameTextbox">Name : </label></td>
+                    <td><input type="text" id="nameTextbox" name="name" placeholder="Put Name Here..." /></td>
+                </tr>
+                <tr>
+                    <td><label for="emailTextbox">Email : </label></td>
+                    <td><input type="text" id="emailTextbox" name="email" placeholder="Put Email Here..." /></td>
+                </tr>
+                <tr>
+                    <td><label for="passwordTextbox">Password : </label></td>
+                    <td><input type="password" id="passwordTextbox" name="password" placeholder="*****" /></td>
+                </tr>
+                <tr>
+                    <td><label for="confirmPasswordTextbox">Confirm Password : </label></td>
+                    <td><input type="password" id="confirmPasswordTextbox" name="confirmPassword" placeholder="*****" /></td>
+                </tr>
+                <tr>
+                    <td><label for="birthDateTextbox">Date Of Birth : </label></td>
+                    <td><input type="text" id="birthDateTextbox" name="birthDate" autocomplete="off" placeholder="dd-mm-yyyy" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Register" /></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript" src="Contents\Scripts\jquery-3.3.1\jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\jquery-Validation\jquery.validate.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\bootstrap\bootstrap.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\bootstrap-datepicker\bootstrap-datepicker.js"></script>
+
+    <!-- row script -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // add avro - bangla input
+
+            $('#birthDateTextbox').datepicker({
+                format: "dd/mm/yyyy",
+                daysOfWeekHighlighted: "5,6",
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $("#inputForm").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 4
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 12
+                    },
+                    confirmPassword: {
+                        required: true,
+                        equalTo: "#password"
+                    },
+                    birthDate: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "Please Enter Your Name....",
+                        minlength: "Name should be 4 characters long."
+                    },
+                    email: {
+                        required: "Please Enter Your Email....",
+                        email: "This is must be an email address"
+                    },
+                    password: {
+                        required: "Password is required",
+                        minlength: "Must be 3 characters",
+                        maxlength: "Can't be more than 12 char"
+                    },
+                    confirmPassword: {
+                        required: "Confim Password is required",
+                        equalTo: "Must be same as above Password"
+                    },
+                    birthDate: {
+                        required: "Please Enter your Date of birth"
+                    }
+                }
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>
