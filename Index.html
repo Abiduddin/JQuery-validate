@@ -34,6 +34,14 @@
                     <td><input type="text" id="birthDateTextbox" name="birthDate" autocomplete="off" placeholder="dd-mm-yyyy" /></td>
                 </tr>
                 <tr>
+                    <td><label for="landPhoneNoTextBox">Land Phone No : </label></td>
+                    <td><input type="text" id="landPhoneNoTextBox" name="landPhone" placeholder="Bill no" /></td>
+                </tr>
+                <tr>
+                    <td><label for="mobileNoTextBox">mobile number : </label></td>
+                    <td><input type="text" id="mobileNoTextBox" name="mobileNo" placeholder="mobile number" /></td>
+                </tr>
+                <tr>
                     <td></td>
                     <td><input type="submit" value="Register" /></td>
                 </tr>
@@ -80,7 +88,27 @@
                     },
                     birthDate: {
                         required: true
+                    },
+                    landPhone:{
+                    required: {
+                        depends: function (element) {
+                            if ($('#mobileNoTextBox').val() == "") {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
                     }
+                },
+                  mobileNo: {
+                    required: function (element) {
+                        if ($('#landPhoneNoTextBox').val() == "") {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
                 },
                 messages: {
                     name: {
@@ -102,6 +130,12 @@
                     },
                     birthDate: {
                         required: "Please Enter your Date of birth"
+                    },
+                    landPhone: {
+                        required: "Enter Land Phone number"
+                    },
+                    mobileNo: {
+                        required: "Enter Mobile number"
                     }
                 }
             });

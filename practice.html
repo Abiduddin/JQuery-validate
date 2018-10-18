@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JQuery-Validation</title>
+    <link rel="stylesheet" href="Contents\CSS\validationError.css">
+    <link rel="stylesheet" href="Contents\CSS\bootstrap\bootstrap.css">
+    <link rel="stylesheet" href="Contents\CSS\bootstrap-datepicker\bootstrap-datepicker.css">
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>BD Diagnostic Center</h1>
+        <h3>Bill Management System</h3>
+        <%--Slide show here--%>
+    </div>
+
+    <div class="container">
+
+        <div>
+            <ul class="nav nav-tabs ">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomeUI.aspx">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="False">Setup</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item active" href="TestTypeUI.aspx">Test Type</a>
+                        <a class="dropdown-item" href="TestSetupUI.aspx">Test</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="False">Test Request</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="TestRequestUI.aspx">Entry</a>
+                        <a class="dropdown-item" href="PaymentUI.aspx">Payment</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="False">Report</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="TestWiseReportUI.aspx">Test Wise</a>
+                        <a class="dropdown-item" href="TypeWiseReportUI.aspx">Type Wise</a>
+                        <a class="dropdown-item" href="UnpaidBillReport.aspx">Unpaid Bill</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <br />
+        <br />
+
+        <div class="container">
+            <form id="form1" runat="server">
+
+                <div class="form-group row">
+
+                    <label for="typeNameTextBox" class="col-sm-2 col-form-label">Type Name: </label>
+                    <div class="col-sm-4">
+                        <input type="text" id="confirmPasswordTextbox" name="typeName" placeholder="*****" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="submit" value="Register" />
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="Contents\Scripts\jquery-3.3.1\jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\jquery-Validation\jquery.validate.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\bootstrap\bootstrap.js"></script>
+    <script type="text/javascript" src="Contents\Scripts\bootstrap-datepicker\bootstrap-datepicker.js"></script>
+	
+	<script>
+	$(document).ready(function() {
+
+    $("#form1").validate({
+        rules: {
+            typeName: {
+                required: true
+            }
+
+        },
+        messages: {
+            typeName: {
+                required: "Enter a Valide Type Name"
+            }
+
+        }
+    });
+});
+	</script
+
+</body>
+
+</html>
